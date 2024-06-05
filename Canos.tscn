@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Canos.gd" type="Script" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+height = 10.0315
+
+[sub_resource type="SpatialMaterial" id=2]
+
+[sub_resource type="CylinderMesh" id=3]
+material = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.835294, 0.129412, 0.00784314, 0.435294 )
+
+[sub_resource type="CylinderMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.0784314, 0.694118, 0.815686, 1 )
+
+[node name="Canos" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="cano 1" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.73, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="cano 1"]
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="cano 1"]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="cano 1"]
+transform = Transform( 1.4, 0, 0, 0, 0.5, 0, 0, 0, 1.4, 0, 4.49507, 0 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="CSGMesh3" type="CSGMesh" parent="cano 1"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.0202661, 4.5211, 0.00766563 )
+mesh = SubResource( 7 )
+material = SubResource( 8 )
+
+[node name="cano 2" type="Area" parent="."]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 10, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="cano 2"]
+shape = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="cano 2"]
+transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="cano 2"]
+transform = Transform( 1.4, 0, 0, 0, 0.5, 0, 0, 0, 1.4, 0, 4.49507, 0 )
+mesh = SubResource( 5 )
+material = SubResource( 6 )
+
+[node name="CSGMesh3" type="CSGMesh" parent="cano 2"]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.0202661, 4.5211, 0.00766563 )
+mesh = SubResource( 7 )
+material = SubResource( 8 )
+
+[node name="deletec" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+[connection signal="body_entered" from="cano 1" to="." method="_on_cano_1_body_entered"]
+[connection signal="body_entered" from="cano 2" to="." method="_on_cano_2_body_entered"]
+[connection signal="timeout" from="deletec" to="." method="_on_deletec_timeout"]
