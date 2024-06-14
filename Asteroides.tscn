@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Asteroides.gd" type="Script" id=1]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.180392, 0.156863, 0.12549, 1 )
+
+[sub_resource type="SphereShape" id=3]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 4.46748, 0.0525033, 4.18932 )
+
+[sub_resource type="SphereShape" id=5]
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 4.16863, 0.037554, 4.18485 )
+
+[node name="Asteroides" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="asteroide1" type="Area" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="asteroide1"]
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="asteroide1"]
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="asteroide1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.95691, -0.127526 )
+shape = SubResource( 7 )
+
+[node name="asteroide2" type="Area" parent="."]
+transform = Transform( -1, -3.25841e-07, 0, 3.25841e-07, -1, 0, 0, 0, 1, 0, 5.55421, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="asteroide2"]
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="asteroide2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00935555, 0, -0.0142603 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="asteroide2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00935475, -2.45533, -0.0142603 )
+shape = SubResource( 6 )
+
+[node name="deleta" type="Timer" parent="."]
+[connection signal="body_exited" from="asteroide1" to="." method="colidiu"]
+[connection signal="body_exited" from="asteroide2" to="." method="colidiu"]
+[connection signal="timeout" from="deleta" to="." method="_on_deleta_timeout"]

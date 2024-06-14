@@ -15,12 +15,12 @@ _global_script_class_icons={
 
 [application]
 
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Telas/MenuPrincipal.tscn"
 config/icon="res://icon.png"
 
 [debug]
 
-settings/fps/force_fps=25
+settings/fps/force_fps=60
 
 [input]
 
@@ -37,6 +37,11 @@ voa={
 r={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+f={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 }
 

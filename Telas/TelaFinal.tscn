@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Material da Aula/Fonte/pixel_font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Material da Aula/Imagens/tela.jpeg" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+extra_spacing_space = -10
+font_data = ExtResource( 1 )
+
+[node name="TelaFinal" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -190.854
+margin_bottom = 233.146
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelRecado" type="Label" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.831373, 0.741176, 0.160784, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "CONGRATULATIONS YOU WON!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

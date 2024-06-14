@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Música-de-fundo-do-FlappyBird-FASE-2.wav-c816d05c86c326d0445f42db25cb5db9.sample"
+
+[deps]
+
+source_file="res://Material da Aula/sons/Música-de-fundo-do-FlappyBird-FASE-2.wav"
+dest_files=[ "res://.import/Música-de-fundo-do-FlappyBird-FASE-2.wav-c816d05c86c326d0445f42db25cb5db9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

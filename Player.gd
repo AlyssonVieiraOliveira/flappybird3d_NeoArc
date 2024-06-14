@@ -12,4 +12,5 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("r"):
 		get_tree().reload_current_scene()
 		
-
+	if Input.is_action_just_pressed("f"):
+		get_tree().quit()

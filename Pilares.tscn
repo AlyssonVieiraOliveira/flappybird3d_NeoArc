@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Pilares.gd" type="Script" id=1]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.823529, 0.780392, 0.67451, 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.929412, 0.85098, 0.658824, 1 )
+
+[sub_resource type="CylinderShape" id=5]
+radius = 0.915161
+height = 8.67286
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 8.02233, 0.0516831, 7.03831 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 7.1659, 0.0671662, 8.43969 )
+
+[node name="Pilares" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Pilar 1" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.01144, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Pilar 1"]
+transform = Transform( 0.887674, 0, 0, 0, 4.00148, 0, 0, 0, 0.887674, 0, -1.23607, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="Pilar 1"]
+transform = Transform( 1.39913, 0, 0, 0, 0.54762, 0, 0, 0, 1.42177, 0, 2.83726, 0 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pilar 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.913921, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pilar 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0602732, -5.6381, 0 )
+shape = SubResource( 6 )
+
+[node name="Pilar 2" type="Area" parent="."]
+transform = Transform( -1, -3.25841e-07, 0, 3.25841e-07, -1, 0, 0, 0, 1, 0, 8.38202, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Pilar 2"]
+transform = Transform( 0.887674, 0, 0, 0, 4.00148, 0, 0, 0, 0.887674, 0, -1.23607, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="Pilar 2"]
+transform = Transform( 1.39913, 0, 0, 0, 0.54762, 0, 0, 0, 1.42177, 0, 2.83726, 0 )
+mesh = SubResource( 3 )
+material = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Pilar 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.913921, 0 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Pilar 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0197845, -5.64384, 0.0685067 )
+shape = SubResource( 7 )
+
+[node name="deletp" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+[connection signal="body_exited" from="Pilar 1" to="." method="colidiu"]
+[connection signal="body_exited" from="Pilar 2" to="." method="colidiu"]
+[connection signal="timeout" from="deletp" to="." method="_on_deletp_timeout"]
