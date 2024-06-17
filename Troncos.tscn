@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Troncos.gd" type="Script" id=1]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.345098, 0.2, 0.0352941, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.635294, 0.376471, 0.164706, 1 )
+
+[sub_resource type="CylinderShape" id=4]
+radius = 1.6672
+height = 14.8559
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 28.3296, 1, 25.9603 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 22.9545, 1, 20.0055 )
+
+[node name="Troncos" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Tronco 1" type="Area" parent="."]
+
+[node name="CSGMesh" type="CSGMesh" parent="Tronco 1"]
+transform = Transform( 1.64721, 0, 0, 0, 7.32854, 0, 0, 0, 1.64723, 0, -4.92807, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="Tronco 1"]
+transform = Transform( 1.26063, 0, 0, 0, 7.32854, 0, 0, 0, 1.27363, 0, -4.9057, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Tronco 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.96836, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Tronco 1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.3444, 0 )
+shape = SubResource( 5 )
+
+[node name="Tronco 2" type="Area" parent="."]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 10.103, 0 )
+
+[node name="CSGMesh" type="CSGMesh" parent="Tronco 2"]
+transform = Transform( 1.64721, 0, 0, 0, 7.32854, 0, 0, 0, 1.64723, 0, -4.92807, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="Tronco 2"]
+transform = Transform( 1.26063, 0, 0, 0, 7.32854, 0, 0, 0, 1.27363, -1.36424e-12, -4.86954, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Tronco 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.96836, 0 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Tronco 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7325e-06, -16.4233, 0 )
+shape = SubResource( 6 )
+
+[node name="deletet" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+[connection signal="body_exited" from="Tronco 1" to="." method="colidiu"]
+[connection signal="body_exited" from="Tronco 2" to="." method="colidiu"]
+[connection signal="timeout" from="deletet" to="." method="_on_deletet_timeout"]

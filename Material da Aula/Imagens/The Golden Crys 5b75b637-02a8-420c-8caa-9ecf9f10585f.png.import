@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/The Golden Crys 5b75b637-02a8-420c-8caa-9ecf9f10585f.png-50a2e9acb1b5418a54038c64b3712659.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Material da Aula/Imagens/The Golden Crys 5b75b637-02a8-420c-8caa-9ecf9f10585f.png"
+dest_files=[ "res://.import/The Golden Crys 5b75b637-02a8-420c-8caa-9ecf9f10585f.png-50a2e9acb1b5418a54038c64b3712659.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
